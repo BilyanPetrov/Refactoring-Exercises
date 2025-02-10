@@ -1,9 +1,9 @@
-package chapter_1.VideoStore.problematic;
+package chapter_1.VideoStore.initial;
 
 /**
  * The Rental class represents a rental of a movie for a specified number of days.
  */
-class Rental {
+public class Rental {
 
     private Movie _movie; // The movie being rented
     private int _daysRented; // The number of days the movie is rented for

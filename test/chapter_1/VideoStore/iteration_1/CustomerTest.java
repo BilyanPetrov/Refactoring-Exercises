@@ -1,6 +1,8 @@
-package chapter_1.VideoStore.problematic;
+package chapter_1.VideoStore.iteration_1;
 
 
+import chapter_1.VideoStore.initial.Movie;
+import chapter_1.VideoStore.initial.Rental;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
