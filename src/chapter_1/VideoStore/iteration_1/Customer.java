@@ -1,7 +1,7 @@
-package chapter_1.VideoStore.solutions.iteration_1;
+package chapter_1.VideoStore.iteration_1;
 
-import chapter_1.VideoStore.problematic.Movie;
-import chapter_1.VideoStore.problematic.Rental;
+import chapter_1.VideoStore.initial.Movie;
+import chapter_1.VideoStore.initial.Rental;
 
 import java.util.Enumeration;
 import java.util.Vector;
