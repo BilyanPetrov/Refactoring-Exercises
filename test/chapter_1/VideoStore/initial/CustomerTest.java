@@ -1,4 +1,4 @@
-package chapter_1.VideoStore.problematic;
+package chapter_1.VideoStore.initial;
 
 
 import org.junit.jupiter.api.Test;

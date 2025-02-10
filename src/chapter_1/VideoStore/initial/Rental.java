@@ -1,4 +1,4 @@
-package chapter_1.VideoStore.problematic;
+package chapter_1.VideoStore.initial;
 
 /**
  * The Rental class represents a rental of a movie for a specified number of days.
