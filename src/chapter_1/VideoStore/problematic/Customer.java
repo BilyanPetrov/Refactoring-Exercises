@@ -1,4 +1,4 @@
-package chapter_1.VideoStore;
+package chapter_1.VideoStore.problematic;
 
 import java.util.Enumeration;
 import java.util.Vector;

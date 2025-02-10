@@ -1,4 +1,4 @@
-package chapter_1.VideoStore;
+package chapter_1.VideoStore.problematic;
 
 /**
  * The Movie class represents a movie with a title and a price code.
