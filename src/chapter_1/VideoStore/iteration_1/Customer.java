@@ -76,27 +76,34 @@ public class Customer {
     /**
      * Calculates the amount for a given rental.
      *
-     * @param each The rental for which the amount is being calculated.
+     * @param aRental The rental for which the amount is being calculated.
      * @return The total amount for the rental.
      */
-    public double amountFor(Rental each) {
-        double thisAmount = 0;
-        switch (each.getMovie().getPriceCode()) {
+    public double amountFor(Rental aRental) {
+        // ************************************************************
+        // *                                                          *
+        // *  Any fool can write code that a computer can understand. *
+        // *  Good programmers write code that humans can understand. *
+        // *                                                          *
+        // ************************************************************
+
+        double result = 0;
+        switch (aRental.getMovie().getPriceCode()) {
             case Movie.REGULAR:
-                thisAmount += 2;
-                if (each.getDaysRented() > 2)
-                    thisAmount += (each.getDaysRented() - 2) * 1.5;
+                result += 2;
+                if (aRental.getDaysRented() > 2)
+                    result += (aRental.getDaysRented() - 2) * 1.5;
                 break;
             case Movie.NEW_RELEASE:
-                thisAmount += each.getDaysRented() * 3;
+                result += aRental.getDaysRented() * 3;
                 break;
             case Movie.CHILDRENS:
-                thisAmount += 1.5;
-                if (each.getDaysRented() > 3)
-                    thisAmount += (each.getDaysRented() - 3) * 1.5;
+                result += 1.5;
+                if (aRental.getDaysRented() > 3)
+                    result += (aRental.getDaysRented() - 3) * 1.5;
                 break;
         }
-        return thisAmount;
+        return result;
     }
 
 }
