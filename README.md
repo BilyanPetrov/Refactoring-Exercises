@@ -14,18 +14,29 @@ The project will follow this general structure:
     - `/initial` unit tests for the initial code
     - `/iteration_{index}` unit tests adapted for each new iteration code
 
-# Notes
+# Comments and Notes
+
+## README Notes
 
 README notes are to be added to each example package, and should generally follow this structure:
 
 - Notes will outline the different methodologies and forms of refactoring which were observed in that section.
 - Notes will contain links to Java classes showcasing those refactoring methodologies in action.
-- Those Java class will contain inline-comments to indicate precisely where refactoring took place:
+- Tips:
+    - Pieces of advice for all programmers to keep in mind
+
+## Comments
+
+The Java classes inside this project might contain multi/inline comments which:
+
+- indicate precisely where refactoring took place:
     - ```java
       // Refactored: <general action performed>
       ```
-- Tips:
-    - Pieces of advice for all programmers to keep in mind
+- outline a general issue with the code below them:
+    - ```java
+      // Problem Statement: <general design/lint problem description>
+      ``` 
 
 ## Note links
 
