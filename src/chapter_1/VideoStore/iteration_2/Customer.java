@@ -1,7 +1,6 @@
-package chapter_1.VideoStore.iteration_1;
+package chapter_1.VideoStore.iteration_2;
 
 import chapter_1.VideoStore.initial.Movie;
-import chapter_1.VideoStore.initial.Rental;
 
 import java.util.Enumeration;
 import java.util.Vector;
@@ -55,8 +54,6 @@ public class Customer {
         while (rentals.hasMoreElements()) {
             Rental each = rentals.nextElement();
             // determine amounts for each line
-
-            // Refactored: Extracted switch statement into its own method
             double thisAmount = amountFor(each);
 
             // add frequent renter points
@@ -77,40 +74,14 @@ public class Customer {
     }
 
     /**
-     * Problem Statement:
-     *
-     * We've successfully extracted the code chunk in a separate method.
-     * Does this class look like the right place for this method?
-     * ** It doesn't use any Customer methods whatsoever. **
-     * A better place for this method is under the Rental class.
-     * @todo Move the method below into the Rental class.
-     */
-
-    /**
-     * Calculates the amount for a given rental.
+     * Get the charge-amount of the provided rental.
      *
      * @param aRental The rental for which the amount is being calculated.
      * @return The total amount for the rental.
      */
     public double amountFor(Rental aRental) {
-        // Refactored: Renamed local variable names
-        double result = 0;
-        switch (aRental.getMovie().getPriceCode()) {
-            case Movie.REGULAR:
-                result += 2;
-                if (aRental.getDaysRented() > 2)
-                    result += (aRental.getDaysRented() - 2) * 1.5;
-                break;
-            case Movie.NEW_RELEASE:
-                result += aRental.getDaysRented() * 3;
-                break;
-            case Movie.CHILDRENS:
-                result += 1.5;
-                if (aRental.getDaysRented() > 3)
-                    result += (aRental.getDaysRented() - 3) * 1.5;
-                break;
-        }
-        return result;
+        // Refactored: Move Method - move calculations into new Rental.getCharge method.
+        return aRental.getCharge();
     }
 
 }

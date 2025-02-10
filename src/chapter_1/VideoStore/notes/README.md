@@ -4,7 +4,7 @@
 
 ### ***Extract Method***
 
-[Extraction application](../iteration_1/Customer.java)
+[Method Extraction application](../iteration_1/Customer.java)
 
 The first step in the refactoring process is to find a logical clump of code and use the Extract Method.
 This technique involves identifying chunks of code that can be moved to a separate method, improving code readability
