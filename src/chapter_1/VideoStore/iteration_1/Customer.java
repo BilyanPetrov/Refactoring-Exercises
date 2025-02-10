@@ -77,6 +77,16 @@ public class Customer {
     }
 
     /**
+     * Problem Statement:
+     *
+     * We've successfully extracted the code chunk in a separate method.
+     * Does this class look like the right place for this method?
+     * ** It doesn't use any Customer methods whatsoever. **
+     * A better place for this method is under the Rental class.
+     * @todo Move the method below into the Rental class.
+     */
+
+    /**
      * Calculates the amount for a given rental.
      *
      * @param aRental The rental for which the amount is being calculated.
