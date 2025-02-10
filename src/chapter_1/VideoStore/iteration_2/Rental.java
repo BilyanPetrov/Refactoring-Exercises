@@ -38,4 +38,31 @@ public class Rental {
     public Movie getMovie() {
         return _movie;
     }
+
+    // Refactored: Move Method - moved charge calculations from Customer.amountFor into this.getCharge method below
+
+    /**
+     * Calculates the total charge for the rental based on the movie's price code and days rented.
+     *
+     * @return The total charge for the rental.
+     */
+    double getCharge() {
+        double result = 0;
+        switch (getMovie().getPriceCode()) {
+            case Movie.REGULAR:
+                result += 2;
+                if (getDaysRented() > 2)
+                    result += (getDaysRented() - 2) * 1.5;
+                break;
+            case Movie.NEW_RELEASE:
+                result += getDaysRented() * 3;
+                break;
+            case Movie.CHILDRENS:
+                result += 1.5;
+                if (getDaysRented() > 3)
+                    result += (getDaysRented() - 3) * 1.5;
+                break;
+        }
+        return result;
+    }
 }
