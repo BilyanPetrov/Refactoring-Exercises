@@ -55,7 +55,10 @@ public class Customer {
         while (rentals.hasMoreElements()) {
             Rental each = rentals.nextElement();
             // determine amounts for each line
+
+            // Refactored: Extracted switch statement into its own method
             double thisAmount = amountFor(each);
+
             // add frequent renter points
             frequentRenterPoints++;
             // add bonus for a two-day new release rental
@@ -80,13 +83,7 @@ public class Customer {
      * @return The total amount for the rental.
      */
     public double amountFor(Rental aRental) {
-        // ************************************************************
-        // *                                                          *
-        // *  Any fool can write code that a computer can understand. *
-        // *  Good programmers write code that humans can understand. *
-        // *                                                          *
-        // ************************************************************
-
+        // Refactored: Renamed local variable names
         double result = 0;
         switch (aRental.getMovie().getPriceCode()) {
             case Movie.REGULAR:
