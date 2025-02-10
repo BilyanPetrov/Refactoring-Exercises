@@ -39,6 +39,14 @@ public class Customer {
     }
 
     /**
+     * Problem Statement:
+     *
+     * The current design is not object-oriented and has a long statement method in the Customer class.
+     * This method does too much, and changes to it would be hard to manage. Refactoring is needed
+     * to improve maintainability and reduce duplication of effort for changes like charging costs and HTML statements.
+     */
+
+    /**
      * Generates a statement for the customer, detailing the rentals, total amount owed,
      * and frequent renter points earned.
      *
@@ -70,7 +78,7 @@ public class Customer {
             }
             // add frequent renter points
             frequentRenterPoints++;
-            // add bonus for a two day new release rental
+            // add bonus for a two-day new release rental
             if ((each.getMovie().getPriceCode() == Movie.NEW_RELEASE)
                     &&
                     each.getDaysRented() > 1) frequentRenterPoints++;
