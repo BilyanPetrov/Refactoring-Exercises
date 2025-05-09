@@ -72,21 +72,25 @@ public class Customer {
      */
     public String statement() {
         Enumeration<Rental> rentals = _rentals.elements();
-        String result = "Rental Record for " + getName() + "\n";
+        StringBuilder result = new StringBuilder("Rental Record for " + getName() + "\n");
         // Refactored: Replace temp vars assigned within the loop with 2 queries to new methods
         while (rentals.hasMoreElements()) {
             Rental each = rentals.nextElement();
             //show figures for this rental
-            result += "\t" + each.getMovie().getTitle() + "\t" +
-                    each.getCharge() + "\n";
+            result.append("\t")
+                    .append(each.getMovie().getTitle())
+                    .append("\t")
+                    .append(each.getCharge())
+                    .append("\n");
         }
         //add footer lines
-        result += "Amount owed is " +
-                getTotalCharge() + "\n";
-        result += "You earned " +
-                getTotalFrequentRenterPoints() +
-                " frequent renter points";
-        return result;
+        result.append("Amount owed is ")
+                .append(getTotalCharge())
+                .append("\n");
+        result.append("You earned ")
+                .append(getTotalFrequentRenterPoints())
+                .append(" frequent renter points");
+        return result.toString();
     }
 
     /**
