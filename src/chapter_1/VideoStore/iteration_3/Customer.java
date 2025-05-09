@@ -1,7 +1,5 @@
 package chapter_1.VideoStore.iteration_3;
 
-import chapter_1.VideoStore.initial.Movie;
-
 import java.util.Enumeration;
 import java.util.Vector;
 
@@ -47,25 +45,51 @@ public class Customer {
      * @return a statement for the customer
      */
     public String statement() {
-        double totalAmount = 0;
-        int frequentRenterPoints = 0;
         Enumeration<Rental> rentals = _rentals.elements();
         String result = "Rental Record for " + getName() + "\n";
+        // Refactored: Replace temp vars assigned within the loop with 2 queries to new methods
         while (rentals.hasMoreElements()) {
             Rental each = rentals.nextElement();
-
-            // Refactored: Extracted method for renter points into Rental class
-            frequentRenterPoints += each.getFrequentRenterPoints();
-
             //show figures for this rental
-            // Refactored: Replace Temp (thisAmount) with Query
-            result += "\t" + each.getMovie().getTitle() + "\t" + each.getCharge() + "\n";
-            totalAmount += each.getCharge();
+            result += "\t" + each.getMovie().getTitle() + "\t" +
+                    each.getCharge() + "\n";
         }
-
         //add footer lines
-        result += "Amount owed is " + totalAmount + "\n";
-        result += "You earned " + frequentRenterPoints + " frequent renter points";
+        result += "Amount owed is " +
+                getTotalCharge() + "\n";
+        result += "You earned " +
+                getTotalFrequentRenterPoints() +
+                " frequent renter points";
+        return result;
+    }
+
+    /**
+     * Gets the total charged amount for the customer.
+     *
+     * @return charge-amount for all rentals.
+     */
+    private double getTotalCharge() {
+        double result = 0;
+        Enumeration<Rental> rentals = _rentals.elements();
+        while (rentals.hasMoreElements()) {
+            Rental each = rentals.nextElement();
+            result += each.getCharge();
+        }
+        return result;
+    }
+
+    /**
+     * Gets the total frequent renter points for the customer.
+     *
+     * @return total frequent renter points that this customer has.
+     */
+    private int getTotalFrequentRenterPoints() {
+        int result = 0;
+        Enumeration<Rental> rentals = _rentals.elements();
+        while (rentals.hasMoreElements()) {
+            Rental each = rentals.nextElement();
+            result += each.getFrequentRenterPoints();
+        }
         return result;
     }
 
