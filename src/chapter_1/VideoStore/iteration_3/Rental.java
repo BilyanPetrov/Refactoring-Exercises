@@ -66,6 +66,11 @@ public class Rental {
         return result;
     }
 
+    /**
+     * Get the frequent renter points that this rental generates.
+     *
+     * @return number of frequent renter points.
+     */
     int getFrequentRenterPoints() {
         // Base frequent renter points
         int result = 1;
