@@ -54,7 +54,7 @@ public class Customer {
         while (rentals.hasMoreElements()) {
             Rental each = rentals.nextElement();
             // determine amounts for each line
-            double thisAmount = amountFor(each);
+            double thisAmount = each.getCharge();
 
             // add frequent renter points
             frequentRenterPoints++;
@@ -71,17 +71,6 @@ public class Customer {
         result += "Amount owed is " + totalAmount + "\n";
         result += "You earned " + frequentRenterPoints + " frequent renter points";
         return result;
-    }
-
-    /**
-     * Get the charge-amount of the provided rental.
-     *
-     * @param aRental The rental for which the amount is being calculated.
-     * @return The total amount for the rental.
-     */
-    public double amountFor(Rental aRental) {
-        // Refactored: Move Method - move calculations into new Rental.getCharge method.
-        return aRental.getCharge();
     }
 
 }
