@@ -39,6 +39,32 @@ public class Customer {
     }
 
     /**
+     * Get the customer statement as html-string.
+     *
+     * @return statement as html document.
+     */
+    public String htmlStatement() {
+        Enumeration<Rental> rentals = _rentals.elements();
+        StringBuilder result = new StringBuilder("<H1>Rentals for <EM>" + getName() + "</EM></H1><P>\n");
+        while (rentals.hasMoreElements()) {
+            Rental each = rentals.nextElement();
+            //show figures for each rental
+            result.append(each.getMovie().getTitle())
+                    .append(": ")
+                    .append(each.getCharge())
+                    .append("<BR>\n");
+        }
+        //add footer lines
+        result.append("<P>You owe <EM>")
+                .append(getTotalCharge())
+                .append("</EM><P>\n");
+        result.append("On this rental you earned <EM>")
+                .append(getTotalFrequentRenterPoints())
+                .append("</EM> frequent renter points<P>");
+        return result.toString();
+    }
+
+    /**
      * Generates a statement for the customer, detailing the rentals, total amount owed,
      * and frequent renter points earned.
      *
